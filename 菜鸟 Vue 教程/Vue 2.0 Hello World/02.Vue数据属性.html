@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="vue_det">
+			<h1>site : {{ site }}</h1>
+			<h1>url : {{ url }}</h1>
+			<h1>{{ details() }}</h1>
+		</div>
+		<script type="text/javascript">
+			var data = {site:"", url:"", alexa:""}
+			var vm = new Vue({
+				el: '#vue_det',
+				// data: {
+				// 	site: "菜鸟教程",
+				// 	url: "www.runoob.com",
+				// 	alexa: "10000"
+				// },
+				data,
+				methods: {
+					details: function() {
+						return this.site + "-学的不仅是技术，更是梦想！";
+					}
+				},
+			})
+			// 引用相同的对象
+			document.write(vm.site === data.site)
+			document.write("<br>")
+			// 设置属性影响到原始数据
+			vm.site = "Runoob";
+			document.write(data.site + "<br>");
+			//...反之亦然
+			data.alexa = 1234;
+			document.write(vm.alexa);
+			
+		</script>
+	</body>
+</html>

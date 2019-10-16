@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="aap">
+			<p v-if='seen'>现在你看到我了</p>
+			<template v-if="ok">
+				<h1 v-show="OK">菜鸟学院</h1>
+				<p>学的不仅是技术，更是梦想！</p>
+				<p>哈哈哈，打字辛苦啊！！！</p>
+			</template>
+		<strong>随机生成一个数字，判断Num:{{ Num }}是否大于 0.5 ，然后输出对应信息：</strong>
+			<div v-if="Math.random() > 0.5">
+				Yes
+			</div>
+			<div v-else>
+				Not 
+			</div>
+		<strong>判断输入的值是否为A B C</strong>
+			<input type="text" v-model="type" />
+			<div v-if="type === 'A'">A</div>
+			<div v-else-if="type === 'B'">B</div>
+			<div v-else-if="type === 'C'">C</div>
+			<div v-else>Not A/B/C</div>
+		<strong>判断输入字符串长度</strong>
+			<input type="text" v-model="inp" class="edit" placeholder="判断输入字符串长度" />
+			<h2 v-if="calLen(inp) >10">输入字符串长度大于 10</h2>
+			<h2 v-else-if="calLen(inp) >5">输入字符串长度大于 5</h2>
+			<h2 v-else-if="calLen(inp) >0">输入了字符</h2>
+			<h2 v-else>没有输入字符</h2>
+		</div>
+
+		<script>
+			new Vue({
+				el:'#aap',
+				data:{
+					seen:true,
+					ok:" ",
+					OK:true,
+					Num:Math.random().toFixed(2),
+					type: 'A',
+					inp: ''
+				},
+				methods:{
+					calLen:function(n){
+						if(!n){
+							return 0;
+						}else{
+							return n.length;
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

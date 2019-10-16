@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<pre>
+				参数在指令后以冒号指明。例如： v-bind 指令被用来响应更新 HTML 属性。
+				<a v-bind:href="url">菜鸟教程</a>
+			</pre>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					url: 'http://www.runoob.com'
+				}
+			})
+		</script>
+	</body>
+</html>

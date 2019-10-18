@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>Vue 监听属性 watch</h1>
+		<strong>可以通过 watch 来响应数据的变化。</strong>
+		<p>watch 实现计算器：</p>
+		<div id="app">
+			<p style="font-size : 25px;">计算器：{{ counter }}</p>
+			<button @click="counter++" style="font-size: 25px;">加 1 </button>
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					counter:1
+				}
+			});
+			vm.$watch('counter',function(nval, oval){
+				alert('计算器值的变化：'+ oval + '变为' + nval + '!');
+			})
+		</script>
+	</body>
+</html>

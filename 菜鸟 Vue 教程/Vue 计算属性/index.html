@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Vue 计算属性</h1>
+			<strong>计算属性的关键词：computed</strong>
+			{{ message.split('').reverse().join('') }}
+			<p>原始字符串：{{ message }}</p>
+			<p>计算后反转字符串：{{ reversedMessage }}</p>
+			<p>使用方法后反转字符串：{{ reversedMessage2() }}</p>
+			<p>=======================</p>
+			<p>原始字符串：{{ msg }}</p>
+			<p>计算后反转字符串：{{ reversedMessage }}</p>
+			<p>=======================</p>
+			<input v-model="text"/>
+			<p>原始字符串：{{ text }}</p>
+			<p>计算后反转字符串：{{ reversedMessage3() }}</p>
+		
+		</div>
+		
+		<script type="text/javascript">
+			vm = new Vue({
+				el:'#app',
+				data: {
+					message:'Runoob!',
+					msg:'computed',
+					text: '123,456'
+				},
+				computed:{
+					// 计算属性的 getter
+					reversedMessage: function(){
+					// 'this' 指向 vm 实例
+						return this.message.split('').reverse().join('');
+					}
+				},
+				methods: {
+					reversedMessage2: function(){
+						return this.message.split('').reverse().join('')
+					},
+					reversedMessage3:function(text){
+						return this.text.split(',').reverse().join(',')
+					}
+				},
+				
+			})
+		</script>
+	</body>
+</html>

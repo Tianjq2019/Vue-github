@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<table border="" cellspacing="" cellpadding="">
+				<tr><th>购物车Header</th></tr>
+				<tr>
+					<td>序号</td>
+					<td>商品名称</td>
+					<td>商品价格</td>
+					<td>购买数量</td>
+					<td>操作</td>
+				</tr>
+				<tr v-for="iphone in Ip_Json">
+					<td>{{iphone.id}}</td>
+					<td>{{iphone.name}}</td>
+					<td>{{iphone.price}}</td>
+					<td>
+						<button @click="">-</button> 
+						{{iphone.count}} 
+						<button>+</button>
+					</td>
+					<td><button>清零</button></td>
+				</tr>
+				<tfoot>
+					总价：
+				</tfoot>
+			</table>
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					Ip_Json:[
+						{id: 1, name: 'iphone 8 ', price: 5099, count: 1},
+						{id: 2, name: 'iphone xs', price: 8699, count: 1},
+						{id: 3, name: 'iphone xr', price: 6499, count: 1}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

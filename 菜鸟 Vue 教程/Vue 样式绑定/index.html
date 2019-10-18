@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.base{
+				width: 100px;
+				height: 100px;		
+			}
+			.textGreen{
+				background: green;
+			}
+			.textRed{
+				background: Red;
+			}
+		</style>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<strong>v-bind表达式为：字符串</strong><br>
+			<button @click="isbase=!isbase">显示隐藏</button>
+			<button @click="color = !color ">变色</button>
+			<div v-bind:class="{ 
+				base : isbase, 
+				textGreen : color,
+				textRed: !color }"
+				@click="color = !color "></div>
+				
+			<strong>v-bind表达式为：对象</strong><br>
+			<button @click="classObject.base =!classObject.base">显示隐藏</button>
+			<button @click="classObject.textRed =!classObject.textRed ">变色</button>
+			<div v-bind:class="classObject"></div>
+			
+			<strong>v-bind表达式为：数组</strong><br>
+			<button @click="base='base' ">显示</button>
+			<button @click="base='' ">隐藏</button>
+			<button @click="text='textRed'">红色</button>
+			<button @click="text='textGreen'">绿色</button>
+			<input v-model="color" />
+			<div v-bind:class="[base,text]"></div>
+			<!-- <div v-bind:class="[base,textG,textR]"></div> -->
+			<p>"text='textRed'" 变量赋值字符串要加引号表示字符串</p>
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					isbase: true,
+					color:true,
+					base:'base',
+					text:'',
+					textG:'textGreen',
+					textR:'textRed',
+					classObject:{
+						base:true,
+						textRed:true,
+						textGreen:true
+					}
+				}
+			})
+			// console.log(textR)
+		</script>
+	</body>
+</html>
